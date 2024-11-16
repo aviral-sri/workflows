@@ -2,7 +2,7 @@ name: Daily Commit for Streak
 
 on:
   schedule:
-    - cron: "0 0 * * *" 
+    - cron: "0 0 * * *" # Runs daily at midnight UTC
 
 jobs:
   update-readme:
@@ -14,8 +14,12 @@ jobs:
       - name: Update README
         run: |
           echo "Updated on $(date)" >> README.md
-          git config user.name "aviral-sri"
-          git config user.email "sriaviralnarain@gmail.com"
+          git config user.name "your-username"
+          git config user.email "your-email@example.com"
           git add README.md
           git commit -m "Daily update for streak"
-          git push
+      - name: Push changes
+        env:
+          PAT_TOKEN: ${{ secrets.PAT_TOKEN }}
+        run: |
+          git push https://$PAT_TOKEN@github.com/your-username/your-repo-name.git

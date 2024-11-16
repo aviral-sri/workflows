@@ -1,0 +1,21 @@
+name: Daily Commit for Streak
+
+on:
+  schedule:
+    - cron: "0 0 * * *" 
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Update README
+        run: |
+          echo "Updated on $(date)" >> README.md
+          git config user.name "aviral-sri"
+          git config user.email "sriaviralnarain@gmail.com"
+          git add README.md
+          git commit -m "Daily update for streak"
+          git push

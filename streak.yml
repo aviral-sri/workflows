@@ -14,8 +14,8 @@ jobs:
       - name: Update README
         run: |
           echo "Updated on $(date)" >> README.md
-          git config user.name "your-username"
-          git config user.email "your-email@example.com"
+          git config user.name "aviral-sri"
+          git config user.email "sriaviralnarain@gmail.com"
           git add README.md
           git commit -m "Daily update for streak"
       - name: Push changes
